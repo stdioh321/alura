@@ -8,6 +8,8 @@ import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
 import br.com.alura.forum.repository.TopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Page;
@@ -33,7 +35,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/topico")
-public class TopicosController {
+public class TopicoController {
     @Autowired
     private TopicoRepository topicoRepository;
 
@@ -45,6 +47,7 @@ public class TopicosController {
 
 
     @GetMapping
+    @Cacheable(value = "getTopico")
     public ResponseEntity<Page<TopicoDto>> get(@RequestParam(value = "nomeCurso", required = false) String nomeCurso,
                                                @PageableDefault(size = 3) Pageable paginacao) {
 
@@ -55,6 +58,7 @@ public class TopicosController {
     }
 
     @GetMapping("/{id}")
+    @Cacheable(value = "getTopicoById")
     public ResponseEntity<TopicoDetalhesDto> getById(@PathVariable("id") Long id) {
         var topico = topicoRepository.findById(id);
         if (topico.isEmpty()) return ResponseEntity.notFound().build();
@@ -63,6 +67,7 @@ public class TopicosController {
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = {"getTopico", "getTopicoById"}, allEntries = true)
     public ResponseEntity<TopicoDto> post(@Valid @RequestBody TopicoForm form, UriComponentsBuilder uriComponentsBuilder) {
         var topico = form.convert(cursoRepository);
         topicoRepository.save(topico);
@@ -72,6 +77,7 @@ public class TopicosController {
 
     @PutMapping("/{id}")
     @Transactional
+    @CacheEvict(value = {"getTopico", "getTopicoById"}, allEntries = true)
     public ResponseEntity<TopicoDto> put(@PathVariable("id") Long id, @Valid @RequestBody TopicoUpdateForm form) {
         if (topicoRepository.findById(id).isEmpty()) return ResponseEntity.notFound().build();
         Topico topico = form.update(id, topicoRepository);
@@ -80,6 +86,7 @@ public class TopicosController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @CacheEvict(value = {"getTopico", "getTopicoById"}, allEntries = true)
     public ResponseEntity delete(@PathVariable("id") Long id) {
         if (topicoRepository.findById(id).isEmpty()) return ResponseEntity.notFound().build();
         topicoRepository.deleteById(id);
