@@ -26,12 +26,14 @@ dependencies {
 	/*
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	*/
+	compile 'io.jsonwebtoken:jjwt:0.9.1'
+
 	implementation 'com.h2database:h2'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly group: 'com.github.peichhorn', name: 'lombok-pg', version: '0.11.3'
-	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
 }

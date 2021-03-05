@@ -9,7 +9,8 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
 import java.util.Locale;
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+//@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication
 @EnableSpringDataWebSupport
 @EnableCaching
 public class ForumApplication {

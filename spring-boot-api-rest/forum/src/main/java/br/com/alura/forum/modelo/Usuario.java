@@ -3,16 +3,19 @@ package br.com.alura.forum.modelo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 
 @Data
 @Entity
 @NoArgsConstructor
-public class Usuario extends BasicModel {
+public class Usuario extends BasicModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +23,9 @@ public class Usuario extends BasicModel {
     private String nome;
     private String email;
     private String senha;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfis = new ArrayList<>();
 
     @Override
     public int hashCode() {
@@ -45,39 +51,41 @@ public class Usuario extends BasicModel {
             return false;
         return true;
     }
-/*
 
-	public Long getId() {
-		return id;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getPerfis();
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Override
+    public String getPassword() {
+        return getSenha();
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    @Override
+    public String getUsername() {
+        return getEmail();
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-*/
 
 }

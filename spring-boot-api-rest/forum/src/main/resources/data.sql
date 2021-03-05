@@ -1,7 +1,7 @@
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Peach', 'aluno@gmail.com', '123456', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ('Peach', 'aluno@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Mario', 'mario@gmail.com', '123456', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+VALUES ('Mario', 'mario@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
 
 INSERT INTO CURSO(nome, categoria)
 VALUES ('Spring Boot', 'Programacao');
