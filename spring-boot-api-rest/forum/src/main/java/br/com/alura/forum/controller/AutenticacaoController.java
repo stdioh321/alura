@@ -7,6 +7,7 @@ import br.com.alura.forum.modelo.Usuario;
 import br.com.alura.forum.repository.UsuarioRepository;
 import br.com.alura.forum.service.JwtTokenUtil;
 import br.com.alura.forum.service.TokenService;
+import io.swagger.annotations.ApiImplicitParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -54,6 +55,7 @@ public class AutenticacaoController {
 
 
     @GetMapping("/me")
+//    @ApiImplicitParam(name = "Authorization", value = "Access Token", required = true, allowEmptyValue = false, paramType = "header", dataTypeClass = String.class, example = "Bearer [access_token]")
     public ResponseEntity<UsuarioDto> me() {
         var username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         var user = usuarioRepository.findByEmailIgnoreCase(username);

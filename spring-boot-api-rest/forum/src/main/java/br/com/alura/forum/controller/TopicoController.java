@@ -7,6 +7,9 @@ import br.com.alura.forum.controller.form.TopicoUpdateForm;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
 import br.com.alura.forum.repository.TopicoRepository;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,6 +20,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -28,6 +32,7 @@ import javax.swing.text.html.parser.Entity;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.net.URI;
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,6 +40,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/topico")
+
 public class TopicoController {
     @Autowired
     private TopicoRepository topicoRepository;
@@ -59,6 +65,8 @@ public class TopicoController {
 
     @GetMapping("/{id}")
     @Cacheable(value = "getTopicoById")
+
+
     public ResponseEntity<TopicoDetalhesDto> getById(@PathVariable("id") Long id) {
         var topico = topicoRepository.findById(id);
         if (topico.isEmpty()) return ResponseEntity.notFound().build();

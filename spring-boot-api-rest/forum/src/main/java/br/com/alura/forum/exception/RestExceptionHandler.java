@@ -35,23 +35,23 @@ public class RestExceptionHandler {
          }
          return ResponseEntity.status(apiError.getStatus()).body(apiError);
      }*/
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({MethodArgumentNotValidException.class})
-    protected List<ErrorFormDto> handleValidationException(MethodArgumentNotValidException ex) {
-        List<ErrorFormDto> errorsForm = new ArrayList<>();
-        var locale = LocaleContextHolder.getLocale();
-        var fieldErrors = ex.getFieldErrors();
-        fieldErrors.forEach(fieldError -> {
-
-            String message = messageSource.getMessage(fieldError, locale);
-
-            errorsForm.add(
-                    new ErrorFormDto(fieldError.getField(), fieldError.getObjectName(), fieldError.getDefaultMessage(), fieldError.getRejectedValue())
-            );
-        });
-
-        /*return ResponseEntity.badRequest().body(errorsForm);*/
-        return errorsForm;
-    }
+//    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+//    @ExceptionHandler({MethodArgumentNotValidException.class})
+//    protected List<ErrorFormDto> handleValidationException(MethodArgumentNotValidException ex) {
+//        List<ErrorFormDto> errorsForm = new ArrayList<>();
+//        var locale = LocaleContextHolder.getLocale();
+//        var fieldErrors = ex. getFieldErrors();
+//        fieldErrors.forEach(fieldError -> {
+//
+//            String message = messageSource.getMessage(fieldError, locale);
+//
+//            errorsForm.add(
+//                    new ErrorFormDto(fieldError.getField(), fieldError.getObjectName(), fieldError.getDefaultMessage(), fieldError.getRejectedValue())
+//            );
+//        });
+//
+//        /*return ResponseEntity.badRequest().body(errorsForm);*/
+//        return errorsForm;
+//    }
 
 }
