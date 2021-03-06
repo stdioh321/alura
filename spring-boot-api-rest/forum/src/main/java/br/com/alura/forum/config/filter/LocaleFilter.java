@@ -28,7 +28,7 @@ public class LocaleFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println("doFilterInternal");
+        System.out.println("doFilterInternal LocaleFilter");
         System.out.println(LocaleContextHolder.getLocale());
         var lang = request.getHeader("Accept-Language");
         var contextLocale = LocaleContextHolder.getLocale();
