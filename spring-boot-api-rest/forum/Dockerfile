@@ -12,4 +12,4 @@ WORKDIR /app
 
 EXPOSE 8080
 
-CMD java -jar app.jar
+CMD java -Dserver.port=$PORT -Xmx512m -jar app.jar
