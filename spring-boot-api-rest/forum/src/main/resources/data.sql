@@ -1,7 +1,20 @@
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Peach', 'aluno@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ('Aluno', 'aluno@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Mario', 'mario@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+VALUES ('Moderador', 'moderador@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+
+INSERT INTO PERFIL(id,name)
+VALUES (1, 'ROLE_ALUNO');
+
+INSERT INTO PERFIL(id,name)
+VALUES (2, 'ROLE_MODERADOR');
+
+INSERT INTO USUARIO_PERFIS(usuario_id,perfis_id)
+VALUES (1, 1);
+INSERT INTO USUARIO_PERFIS(usuario_id,perfis_id)
+VALUES (2, 2);
+
 
 INSERT INTO CURSO(nome, categoria)
 VALUES ('Spring Boot', 'Programacao');

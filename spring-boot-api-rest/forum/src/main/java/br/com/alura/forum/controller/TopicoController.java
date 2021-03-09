@@ -22,6 +22,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/topico")
-
+//@Secured(value = "ROLE_MODERADOR")
 public class TopicoController {
     @Autowired
     private TopicoRepository topicoRepository;

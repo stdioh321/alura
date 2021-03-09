@@ -1,11 +1,13 @@
 package br.com.alura.forum.controller.dto;
 
+import br.com.alura.forum.modelo.Perfil;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.modelo.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +18,8 @@ public class UsuarioDto {
     private Long id;
     private String nome;
     private String email;
+    private List<Perfil> perfis = new ArrayList<>();
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
@@ -24,6 +28,7 @@ public class UsuarioDto {
         this.id = usuario.getId();
         this.nome = usuario.getNome();
         this.email = usuario.getEmail();
+        this.perfis = usuario.getPerfis();
         this.createdAt = usuario.getCreatedAt();
         this.updatedAt = usuario.getUpdatedAt();
         this.deletedAt = usuario.getDeletedAt();

@@ -9,6 +9,7 @@ import br.com.alura.forum.service.JwtTokenUtil;
 import br.com.alura.forum.service.TokenService;
 import io.swagger.annotations.ApiImplicitParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@Profile({"prod","test"})
 public class AutenticacaoController {
 
     @Autowired

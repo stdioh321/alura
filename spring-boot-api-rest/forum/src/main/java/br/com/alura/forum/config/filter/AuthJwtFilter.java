@@ -86,7 +86,7 @@ public class AuthJwtFilter extends OncePerRequestFilter {
             }
 
         } catch (Exception ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
         }
         chain.doFilter(request, response);
     }

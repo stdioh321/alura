@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtTokenUtil implements Serializable {
@@ -65,10 +66,11 @@ public class JwtTokenUtil implements Serializable {
     public String doGenerateToken(Usuario usuario, HttpServletRequest request) {
 
         Claims claims = Jwts.claims().setSubject(usuario.getId().toString());
-                if (!Objects.isNull(request)) {
+        if (!Objects.isNull(request)) {
             claims.putIfAbsent("ip", request.getRemoteAddr());
             claims.putIfAbsent("user-agent", request.getHeader("User-Agent"));
         }
+//        claims.put("roles", usuario.getAuthorities().stream().map(tmp -> tmp.getAuthority()).collect(Collectors.toList()));
         claims.put("roles", usuario.getAuthorities());
         Date issuedAt = Date.from(Instant.now());
         Date expiration = Date.from(Instant.now().plusMillis(Long.parseLong(ACCESS_TOKEN_VALIDITY_MILI)));
