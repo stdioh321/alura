@@ -10,7 +10,7 @@ services:
     command: node index.js
     networks: 
       - my-net
-    
+
   node2:
     image: node
     container_name: node2
@@ -21,6 +21,7 @@ services:
     command: node index.js
     networks: 
       - my-net
+
   nginx:
     image: nginx
     container_name: nginx
@@ -28,10 +29,13 @@ services:
       - my-net
     volumes: 
       - "./conf.d:/etc/nginx/conf.d/"
-    ports: 
+    ports:
       - "8787:80"
-    
-      
+    depends_on: 
+      - node1
+      - node2
+
+
 networks: 
   my-net:
     driver: bridge
