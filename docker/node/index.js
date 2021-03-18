@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
   // res.sendFile(path.join(__dirname + '/public/index.html'));
   
   
-  res.set("ip", ip.address());
-  console.log(ip.address() + "\n");
+  
+  console.log("\n" + ip.address() + "\n");
 });
 app.get('/json', (req, res) => {
   res.json({json:"JSON"});
