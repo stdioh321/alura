@@ -1,9 +1,8 @@
 package br.com.bytebank.model
 
 
-
 abstract class Conta {
-    var titular: String = ""
+    var titular: Cliente
         get() = field
         set(value) {
             field = value
@@ -19,10 +18,28 @@ abstract class Conta {
             field = value
         }
 
-    constructor(titular: String, numero: Int, saldo: Double) {
+    constructor(titular: Cliente, numero: Int, saldo: Double) {
         this.titular = titular
         this.numero = numero
         this.saldo = saldo
+
+        var tmp = object {
+            var name = "tmp"
+        }
+
+    }
+
+    init {
+        println("Criando Conta");
+//        Contador.total++;
+        Companion.total++;
+    }
+
+
+    //    companion object Contador {
+    companion object  {
+        var total: Int = 0
+            private set
     }
 //
 //    constructor() {
@@ -46,7 +63,7 @@ abstract class Conta {
         return false;
     }
 
-    fun  transfere(valor: Double, destino: Conta): Boolean {
+    fun transfere(valor: Double, destino: Conta): Boolean {
         if (saldo > valor && destino != null) {
             if (saca(valor)) {
                 if (destino.deposita(valor)) return true;

@@ -11,8 +11,8 @@ class Gerente(
     override val bonificacao: Double get() = salario * 0.2;
 
 
-    override fun autentica(senha: String): Boolean {
-        return this.senha.equals(senha);
-    }
+//    override fun autentica(senha: String): Boolean {
+//        return this.senha.equals(senha);
+//    }
 
 }

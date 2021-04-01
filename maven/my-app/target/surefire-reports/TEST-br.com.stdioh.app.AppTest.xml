@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="br.com.stdioh.app.AppTest" time="0.066" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="jdk.extensions.version" value="11.0.10.0"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/diaslinoh/git/alura/maven/my-app/target/test-classes:/home/diaslinoh/git/alura/maven/my-app/target/classes:/home/diaslinoh/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/diaslinoh/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse OpenJ9"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="com.ibm.vm.bitmode" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="com.ibm.oti.vm.library.version" value="29"/>
+    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="user.timezone" value=""/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.boot.library.path" value="/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib/compressedrefs:/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib"/>
+    <property name="sun.java.command" value="/home/diaslinoh/git/alura/maven/my-app/target/surefire/surefirebooter7494553742528238686.jar /home/diaslinoh/git/alura/maven/my-app/target/surefire 2021-03-30T09-56-02_558-jvmRun1 surefire13173050375270054104tmp surefire_014623991190925914313tmp"/>
+    <property name="surefire.test.class.path" value="/home/diaslinoh/git/alura/maven/my-app/target/test-classes:/home/diaslinoh/git/alura/maven/my-app/target/classes:/home/diaslinoh/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/diaslinoh/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/diaslinoh"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-01-19"/>
+    <property name="java.home" value="/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt"/>
+    <property name="ibm.signalhandling.rs" value="false"/>
+    <property name="file.separator" value="/"/>
+    <property name="jdk.extensions.name" value="Extensions for OpenJDK for Eclipse OpenJ9"/>
+    <property name="basedir" value="/home/diaslinoh/git/alura/maven/my-app"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.compiler" value="j9jit29"/>
+    <property name="com.ibm.util.extralibs.properties" value=""/>
+    <property name="sun.java.launcher.pid" value="17846"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="com.ibm.oti.configuration" value="scar"/>
+    <property name="java.awt.fonts" value=""/>
+    <property name="surefire.real.class.path" value="/home/diaslinoh/git/alura/maven/my-app/target/surefire/surefirebooter7494553742528238686.jar:/home/diaslinoh/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar"/>
+    <property name="com.ibm.oti.shared.enabled" value="false"/>
+    <property name="com.ibm.oti.vm.bootstrap.library.path" value="/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib/compressedrefs:/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib"/>
+    <property name="com.ibm.cpu.endian" value="little"/>
+    <property name="java.fullversion" value="11.0.10+9&#10;JRE 11 Linux amd64-64-Bit Compressed References 20210120_910 (JIT enabled, AOT enabled)&#10;OpenJ9   - 345e1b09e&#10;OMR      - 741e94ea8&#10;JCL      - 0a86953833 based on jdk-11.0.10+9"/>
+    <property name="java.runtime.version" value="11.0.10+9"/>
+    <property name="user.name" value="diaslinoh"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.8.0-48-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="ibm.signalhandling.sigint" value="true"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Eclipse OpenJ9 VM"/>
+    <property name="java.vendor.version" value="AdoptOpenJDK"/>
+    <property name="ibm.signalhandling.sigchain" value="true"/>
+    <property name="localRepository" value="/home/diaslinoh/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.10"/>
+    <property name="com.ibm.system.agent.path" value="/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib"/>
+    <property name="user.dir" value="/home/diaslinoh/git/alura/maven/my-app"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="os.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib/compressedrefs:/home/diaslinoh/.sdkman/candidates/java/11.0.10.j9-adpt/lib:/usr/lib64:/usr/lib"/>
+    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vm.info" value="JRE 11 Linux amd64-64-Bit Compressed References 20210120_910 (JIT enabled, AOT enabled)&#10;OpenJ9   - 345e1b09e&#10;OMR      - 741e94ea8&#10;JCL      - 0a86953833 based on jdk-11.0.10+9"/>
+    <property name="java.vm.version" value="openj9-0.24.0"/>
+    <property name="com.ibm.jcl.checkClassPath" value=""/>
+    <property name="ibm.system.encoding" value="UTF-8"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="br.com.stdioh.app.AppTest" time="0.002"/>
+</testsuite>

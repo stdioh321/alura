@@ -11,8 +11,6 @@ class Diretor(
     override val bonificacao: Double get() = salario * 0.33;
 
 
-    override fun autentica(senha: String): Boolean {
-        return this.senha.equals(senha);
-    }
+//
 
 }

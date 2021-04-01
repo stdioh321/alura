@@ -1,5 +1,10 @@
 package br.com.bytebank.model
 
 interface Autenticavel {
-    fun autentica(senha:String): Boolean;
+
+    var senha: String;
+    fun autentica(senha: String): Boolean {
+        if (this.senha.equals(senha)) return true;
+        return false;
+    }
 }

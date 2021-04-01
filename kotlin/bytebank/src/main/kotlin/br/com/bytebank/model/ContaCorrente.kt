@@ -1,7 +1,7 @@
 package br.com.bytebank.model
 
 
-class ContaCorrente(titular: String, numero: Int, saldo: Double) : Conta(
+class ContaCorrente(titular: Cliente, numero: Int, saldo: Double) : Conta(
         titular = titular,
         numero = numero,
         saldo = saldo
