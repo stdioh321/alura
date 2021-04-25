@@ -3,34 +3,42 @@
 -- USE db;
 
 DROP TABLE IF EXISTS  produto;
+
+DROP TABLE IF EXISTS  categoria;
+
+CREATE TABLE IF NOT EXISTS categoria(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS produto(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(255)
+    descricao VARCHAR(255),
+    categoria_id INT NOT NULL,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
 
-CREATE TABLE IF NOT EXISTS produto(
-                                      id INT AUTO_INCREMENT PRIMARY KEY,
-                                      nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(255)
-    );
+INSERT INTO categoria(nome) VALUES('Eletronicos');
 
+INSERT INTO categoria(nome) VALUES('Eletrodomesticos');
 
+INSERT INTO categoria(nome) VALUES('Moveis');
 
 INSERT INTO
-    produto(nome,descricao)
+    produto(nome,descricao,categoria_id)
 VALUES
-('Caneta', 'Preta');
+('Celular', 'LG', 1);
+
 INSERT INTO
-    produto(nome,descricao)
+    produto(nome,descricao,categoria_id)
 VALUES
-('Borracha', 'Vermelha e Azul');
+('TV', '50 Polegadas', 1)
+
+
+
 INSERT INTO
-        produto(nome,descricao)
-    VALUES
-        ('Caneta', 'Preta');
-INSERT INTO
-        produto(nome,descricao)
-    VALUES
-        ('Borracha', 'Vermelha e Azul');
+    produto(nome,descricao,categoria_id)
+VALUES
+('Sofa', 'Marrom', 3);

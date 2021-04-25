@@ -9,6 +9,8 @@ import br.com.stdioh.javadb.utils.Utils;
 import org.apache.commons.text.CharacterPredicates;
 import org.apache.commons.text.RandomStringGenerator;
 
+import java.sql.Connection;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -16,22 +18,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        try {
+        try (Connection conn = new ConexaoFactory().getConnection()) {
+            conn.setAutoCommit(false);
+            ProdutoDao produtoDao = new ProdutoDao(conn);
 
-            ConexaoFactory conexaoFactory = new ConexaoFactory();
-
-            for(int i =0; i < 20; i++){
-                conexaoFactory.getConnection();
-                System.out.println("Conexao: " + i);
-            }
-
-            ProdutoDao produtoDao = new ProdutoDao();
-
-            var p = new Produto(Utils.getInstance().getRandomString(5));
-            p.setDescricao(Utils.getInstance().getRandomString(12));
-            produtoDao.add(p);
+//            produtoDao.findAll().forEach(produto -> {
+//                System.out.println(produto.getId() + ": " + produto.getNome() + " - " + produto.getDescricao());
+//            });
             produtoDao.findAll().forEach(produto -> {
-                System.out.println(produto.getId() + ": " + produto.getNome() + " - " + produto.getDescricao());
+                System.out.println(produto);
             });
 
 
@@ -48,9 +43,13 @@ public class App {
 //                System.out.println(String.format("%d - %s, %s", id, nome, desc));
 //            }
 //            conn.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    } catch(
+    Exception ex)
+
+    {
+        ex.printStackTrace();
 
     }
+
+}
 }

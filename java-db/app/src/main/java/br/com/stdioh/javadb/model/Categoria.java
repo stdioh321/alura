@@ -2,19 +2,17 @@ package br.com.stdioh.javadb.model;
 
 import lombok.*;
 
-import javax.annotation.Nullable;
-import java.beans.ConstructorProperties;
+import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @RequiredArgsConstructor
 @ToString
-public class Produto {
+public class Categoria {
     private Integer id;
 
     @NonNull
     private String nome;
-    private String descricao;
-    private Categoria categoria;
+
 }

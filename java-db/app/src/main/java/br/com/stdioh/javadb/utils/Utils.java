@@ -15,6 +15,9 @@ public class Utils {
         return instance;
     }
 
+    public String getRandomString() {
+        return getRandomString(5);
+    }
     public String getRandomString(Integer length) {
         if (length == null) length = 5;
         RandomStringGenerator randomStringGenerator =
