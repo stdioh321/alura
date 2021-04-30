@@ -8,7 +8,10 @@ import java.io.*;
 public class TesteCopiaArquivo {
 
     public static void main(String[] args) throws IOException {
-        FileInputStream fis = new FileInputStream("app/lorem.txt");
+
+
+        //FileInputStream fis = new FileInputStream("app/lorem.txt");
+        InputStream fis = System.in;
         InputStreamReader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
 
@@ -19,6 +22,7 @@ public class TesteCopiaArquivo {
         br.lines().forEach(l -> {
             try {
                 bw.write(l);
+                bw.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
