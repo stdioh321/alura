@@ -1,8 +1,8 @@
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Aluno', 'aluno@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ('Aluno', 'aluno@gmail.com', '$2a$10$c1QJja9/ZSXWrjCKNDe4EeLjvCRTGIRtvxDd9PC1nXC9.n59YP.JC', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO USUARIO(nome, email, senha, created_at, updated_at)
-VALUES ('Moderador', 'moderador@gmail.com', '$2a$10$/udnpw/h7l03cEQUJAAeFu11J8vrNH.vlL1SvcfbubeT6gPcWEZeO', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+VALUES ('Moderador', 'moderador@gmail.com', '$2a$10$c1QJja9/ZSXWrjCKNDe4EeLjvCRTGIRtvxDd9PC1nXC9.n59YP.JC', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
 
 INSERT INTO PERFIL(id,name)
 VALUES (1, 'ROLE_ALUNO');

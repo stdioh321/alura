@@ -37,7 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private LocaleFilter localeFilter;
 
-
+    @Bean
+    protected PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
     @Bean
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
