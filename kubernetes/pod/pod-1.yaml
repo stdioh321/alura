@@ -10,8 +10,6 @@ spec:
     image: nginx
     ports:
       - containerPort: 80
-  nodeSelector:
-    mylabel: mylabel
 
 ---
 

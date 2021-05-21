@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: sistema-noticias-config
-data:
-  HOST_DB: db-noticias-svc
-  USER_DB: root

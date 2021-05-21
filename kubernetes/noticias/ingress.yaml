@@ -1,0 +1,39 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portal-ingress
+spec:
+  rules:
+    # Add this host to your /etc/hosts file with the ip of the minikube
+  - host: portal.com      
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portal-noticias-svc
+            port:
+              number: 9090
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portal-ingress-sub
+spec:
+  rules:
+    # Add this host to your /etc/hosts file with the ip of the minikube
+  - host: sub.portal.com      
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portal-noticias-svc
+            port:
+              number: 9090
+              

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-volume-depl
+spec:
+  selector:
+    matchLabels:
+      app: test-volume
+  template:
+    metadata:
+      labels:
+        app: test-volume
+    spec:
+      containers:
+      - name: test-volume-ct1
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /myvolume
+            name: primeiro-volume
+        
+      - name: test-volume-ct2
+        image: diaslinoh/springboot-maven
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+          - mountPath: /myvolume
+            name: primeiro-volume
+
+      volumes:
+        - name: primeiro-volume
+          hostPath:
+            path: /vol/myvol  
+            type: DirectoryOrCreate
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-volume-svc
+spec:
+  selector:
+    app: test-volume
+  type: NodePort
+  ports:
+  - port: 80
+    name: nginx
+  - port: 8080
+    name: springboot
