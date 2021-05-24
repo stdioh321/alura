@@ -1,0 +1,90 @@
+$script1 = <<-SCRIPT
+  echo 67rtesawq345678u9iobhjers4wq32587989ut67e543wq2zxcgfbmç+
+  echo Hello from a script inside Vagrantfile
+  
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: "echo Outside VMs"
+
+
+  config.vm.define "web1" do |web|
+    web.vm.box = "hashicorp/bionic64"
+    web.vm.hostname = "web1"
+    
+    web.vm.provider :virtualbox do |vb|
+      
+      vb.name = "web1"
+      vb.gui = false
+      vb.memory = 2048
+      vb.cpus = 3
+    end
+
+    
+    web.vm.network "private_network", ip: "192.168.99.5"
+    web.vm.network  "forwarded_port", guest: 8888, host:8989
+
+    web.vm.provision "shell", inline: "apt update"
+    web.vm.provision "shell", inline: "apt install -y puppet"
+    web.vm.provision "shell", inline: $script1, run: "always"
+    # web.vm.provision "shell", inline: "puppet apply /vagrant/configs/manifests/phpweb.pp"
+    web.vm.provision "puppet" do |puppet|
+        puppet.manifests_path = "./configs/manifests/"
+        puppet.manifest_file = "phpweb.pp"
+
+    end
+  end
+
+  config.vm.define "web2" do |web|
+    web.vm.box = "tknerr/baseimage-ubuntu-14.04"
+    web.vm.box_version = "1.0.0"
+    web.vm.provider :docker do |d|
+      d.name = "web2"
+    end
+    web.vm.network "private_network", type: "dhcp"
+    web.vm.network "forwarded_port", guest:80, host:7878
+
+    web.vm.provision "shell", inline: "echo Hello"
+    web.vm.provision "shell", inline: "apt update"
+    web.vm.provision "shell", inline: "apt install -y nginx && service nginx start"
+
+  end
+
+
+  config.vm.define "db1" do |db|
+    db.vm.box = "hashicorp/bionic64"
+    db.vm.hostname = "db1"
+    db.vm.provider :virtualbox do |vb|
+      vb.name = "db1"
+    end
+
+    db.vm.network "private_network", ip: "192.168.99.8"
+    # db.vm.network  "forwarded_port", guest: 33306, host:3306
+
+    db.vm.provision "shell", inline: "cat /vagrant/configs/id_rsa.pub >> .ssh/authorized_keys"
+    # db.vm.provision "shell", inline: "apt update && apt install -y mysql-server-5.7"    
+  end
+  config.vm.define "ansible" do |db|
+    db.vm.box = "hashicorp/bionic64"
+    db.vm.hostname = "ansible"
+    db.vm.provider :virtualbox do |vb|
+      vb.name = "ansible"
+    end
+
+    db.vm.network "private_network", ip: "192.168.99.7"
+    #  db.vm.network  "forwarded_port", guest: 33307, host:3306
+
+    db.vm.provision "shell", inline: "cat /vagrant/configs/id_rsa > /home/vagrant/.ssh/id_rsa && chmod 600 /home/vagrant/.ssh/id_rsa && chown -R vagrant:vagrant /home/vagrant/.ssh"
+    db.vm.provision "shell", inline: "apt update && \
+    apt install -y software-properties-common  && \
+    add-apt-repository --yes --update ppa:ansible/ansible  && \
+    apt install -y  ansible"
+    db.vm.provision "shell", inline: "ansible-playbook -i /vagrant/configs/ansible/hosts /vagrant/configs/ansible/playbook.yml"
+
+    # db.vm.provision "ansible" do |ansible|
+    #   ansible.inventory_path = "/vagrant/configs/ansible/hosts"
+    #   ansible.playbook = "/vagrant/configs/ansible/playbook.yml"      
+    # end
+  end
+
+end
