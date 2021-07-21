@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="568d5a26-c942-4f6b-8c8f-2428d121d76c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../java-io/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laravel/controle-series/.idea/controle-series.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laravel/controle-series/resources/views/serie/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-io/.idea/java-io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../java-io/.idea/java-io.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java-io/app/testout.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +126,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574086197053</updated>
-      <workItem from="1626126875909" duration="3169000" />
+      <workItem from="1626126875909" duration="4343000" />
     </task>
     <servers />
   </component>
