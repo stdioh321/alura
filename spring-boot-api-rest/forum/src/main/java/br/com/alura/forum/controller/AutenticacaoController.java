@@ -39,7 +39,7 @@ public class AutenticacaoController {
 
     @PostMapping("/auth")
     public ResponseEntity<JwtDto> autenticar(@RequestBody @Valid LoginForm loginForm, HttpServletRequest req) {
-        Authentication auth = null;
+            Authentication auth = null;
         JwtDto jwtDto = null;
         try {
             UsernamePasswordAuthenticationToken dadosLogin = loginForm.toUsernamePasswordAuthenticationToken();
